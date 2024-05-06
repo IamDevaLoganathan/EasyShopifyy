@@ -1,0 +1,97 @@
+﻿@model EasyShopify.Models.Product
+
+
+<head>
+    <style>
+        .txt{
+            background-color:lightgray;
+            border-radius: 20px
+        }
+    </style>
+</head>
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-8 card bg-transparent text-white" style="border:solid; padding:10px; padding-left:30px; margin-top: 20px">
+                <div class="bg-transparent rounded shadow-sm">
+                    <div class="row card-header bg-secondary bg-opacity-25" style="background-color:transparent">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-9">
+                                    <h2 class="h3">Edit Product</h2>
+                                </div>
+                          
+                            </div>
+                        </div>
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        <input asp-for="ImgURL" hidden>
+                        <div class="card-body" style="background-color:transparent"> 
+                            <div class="row w-100">
+                                <div class="col-12 mb-3">
+                                    <label  asp-for="Id" class="form-label "></label>
+                                    <input type="text" class="txt form-control" asp-for="Id" readonly>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="Ttile" class="form-label "></label>
+                                    <input type="text" class="txt form-control" asp-for="Ttile" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="Description" class="form-label"></label>
+                                    <input type="text" class="txt form-control" asp-for="Description" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="ISBN" class="form-label"></label>
+                                    <input type="text" class="txt form-control" asp-for="ISBN" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="Author" class="form-label"></label>
+                                    <input type="text" class="txt form-control" asp-for="Author" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="ListPrice" class="form-label"></label>
+                                    <input type="text" class="txt form-control" asp-for="ListPrice" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="Price" class="form-label"></label>
+                                    <input type="text" class="txt form-control" asp-for="Price" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="Price50" class="form-label"></label>
+                                    <input type="text" class="txt form-control" asp-for="Price50" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="Price100" class="form-label"></label>
+                                    <input type="text" class="txt form-control" asp-for="Price100" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="ImgURL" class="form-label"></label>
+                                    <input type="file" name="file" class="txt form-control" asp-for="ImgURL">
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <button style="background-color: gray; border:none; color:black" class="btn btn-lg btn-primary w-100" type="submit">Update</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div>
+                                            <a style="background-color:midnightblue; color:white" class="btn btn-lg w-100" asp-controller="Home" asp-action="Index">Back</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="col-3" style="margin-left: 70px; margin-top:20px; margin-left: 100px">
+                <img src="@Model.ImgURL" width="200" height="300" style="border: 1px; border-radius: 25px"></img>
+            </div>
+        </div>
+    </div>
+</div>

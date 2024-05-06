@@ -1,0 +1,92 @@
+﻿@model EasyShopify.Models.Product
+<head>
+    <style>
+        .txt {
+            background-color: lightgray;
+            border-radius: 20px
+        }
+    </style>
+</head>
+<div>
+    <div class="container card bg-transparent text-white" style="border:solid; width:800px">
+        <div class="row">
+            <div class="col-12">
+                <div class="bg-transparent rounded shadow-sm">
+                    <div class="row card-header bg-transparent bg-opacity-25">
+                        <div class="col-12">
+                            <div class="mb-4">
+                                <h2 class="h3">Create Product</h2>
+                                <h3 class="fs-6 fw-normal text-white m-0">Enter Details About Product</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                      <div class="card-body">
+                        <div class="row w-100">
+                            <div class="col-12 mb-3">
+                                <label asp-for="Ttile" class="form-label "></label>
+                                <input type="text" class="txt form-control" asp-for="Ttile" required>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label asp-for="Description" class="form-label"></label>
+                                <input type="text" class="txt form-control" asp-for="Description" required>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label asp-for="ISBN" class="form-label"></label>
+                                <input type="text" class="txt form-control" asp-for="ISBN" required>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label asp-for="Author" class="form-label"></label>
+                                <input type="text" class="txt form-control" asp-for="Author" required>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label asp-for="ListPrice" class="form-label"></label>
+                                <input type="text" class="txt form-control" asp-for="ListPrice" required>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label asp-for="Price" class="form-label"></label>
+                                <input type="text" class="txt form-control" asp-for="Price" required>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label asp-for="Price50" class="form-label"></label>
+                                <input type="text" class="txt form-control" asp-for="Price50" required>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label asp-for="Price100" class="form-label"></label>
+                                <input type="text" class="txt form-control" asp-for="Price100" required>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label asp-for="ImgURL" class="form-label"></label>
+                                <input type="file" name="file" class=" txt form-control" asp-for="ImgURL">
+                            </div>
+                          
+                            <div class="row">
+                                <div class="col-6">
+                                    <div>
+                                            <button style="background-color: gray; border:none; color:black" class="btn btn-lg btn-primary w-100" type="submit">Save</button>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div>
+                                            <a style="background-color:midnightblue; color:white" class="btn btn-lg btn-secondary w-100" asp-controller="Product" asp-action="Retrive">Bact To List</a>
+                                    </div>
+                                </div>
+                            </div> 
+
+                          
+                        </div>
+                        </div>
+                    </form>
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

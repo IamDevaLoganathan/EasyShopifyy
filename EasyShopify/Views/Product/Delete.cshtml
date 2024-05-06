@@ -1,0 +1,94 @@
+﻿@model EasyShopify.Models.Product
+
+<head>
+    <style>
+        .txt {
+            background-color: lightgray;
+            border-radius: 20px
+        }
+    </style>
+</head>
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-9 card bg-transparent text-white" style="border:solid; padding: 10px; padding-left: 30px; margin-top: 20px">
+                <div class="bg-transparent rounded shadow-sm">
+                    <div class="row card-header bg-transparent">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-9">
+                                    <h2 class="h3">Delete Product</h2>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <div class="row w-100">
+                                <div class="col-12 mb-3">
+                                    <label asp-for="Id" class="form-label "></label>
+                                    <input type="text" class="txt form-control" asp-for="Id" readonly>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="Ttile" class="form-label "></label>
+                                    <input type="text" class="txt form-control" asp-for="Ttile" readonly>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="Description" class="form-label"></label>
+                                    <input type="text" class="txt form-control" asp-for="Description" readonly>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="ISBN" class="form-label"></label>
+                                    <input type="text" class="txt form-control" asp-for="ISBN" readonly>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="Author" class="form-label"></label>
+                                    <input type="text" class="txt form-control" asp-for="Author" readonly>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="ListPrice" class="form-label"></label>
+                                    <input type="text" class="txt form-control" asp-for="ListPrice" readonly>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="Price" class="form-label"></label>
+                                    <input type="text" class="txt form-control" asp-for="Price" readonly>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="Price50" class="form-label"></label>
+                                    <input type="text" class="txt form-control" asp-for="Price50" readonly>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label asp-for="Price100" class="form-label"></label>
+                                    <input type="text" class="txt form-control" asp-for="Price100" readonly>
+                                </div>
+                           
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <button class="btn btn-lg btn-danger w-100" style="background-color: gray; border:none; color:black" type="submit">Delete</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div>
+                                            <a class="btn btn-lg btn-secondary w-100" style="background-color:midnightblue; color:white; margin-left: 20px" asp-controller="Home" asp-action="Index">Back</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="col-3" style=" margin-top:20px">
+                <img src="@Model.ImgURL" width="200" height="300" style="border: 1px; border-radius: 25px; margin-left: 50px"></img>
+            </div>
+        </div>
+    </div>
+</div>

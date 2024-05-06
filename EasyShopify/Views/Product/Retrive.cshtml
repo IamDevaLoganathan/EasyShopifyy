@@ -1,0 +1,51 @@
+﻿@model List<EasyShopify.Models.Product>
+
+<div>
+    <div class="container card bg-transparent text-white" style="border: solid">
+        <div class="row">
+            <div class="col-12">
+                <div class=" rounded shadow-sm">
+                    <div class="row card-header text-white">
+                        <div class="col-12">
+                            <div class="row">
+                               <div class="col-9">
+                                    <h2 class="h3">Product List</h2>
+                               </div>
+                                <div class="col-3">
+                                    <a class="btn btn-secondary w-100 text-black fw-bold" style="letter-spacing:2px" asp-controller="Product" asp-action="Create">Create Product</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body text-white">
+                        <table class="table table-bordered text-center text-white">
+                            <thead class="bg-secondary text-black fw-bold bg-opacity-50" style="letter-spacing: 2px">
+                                <tr>
+                                    <td>Title</td>
+                                    <td>ISBN</td>
+                                    <td>Author</td>
+                                    <td>Price</td>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var data in Model)
+                                {
+                                    <tr>
+                                        <td>@data.Ttile</td>
+                                        <td>@data.ISBN</td>
+                                        <td>@data.Author</td>
+                                        <td>@data.ListPrice</td>
+                                      
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

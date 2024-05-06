@@ -1,0 +1,87 @@
+﻿@model ShoppingCartVM
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+    <body>
+        <div class="row">
+            <div class="col-8 card" style="background-color:transparent; color:white; border:solid; padding:10px; padding-left:30px"> 
+                <div class="row card-header">
+                    <h3 style="letter-spacing:2px" >Cart</h3>
+                </div>
+                @foreach(var data in Model.ListCart)
+                {
+           
+                   <div class="row card-body">
+             
+                        <div class="row">
+                            <div class="col">
+                                 <img width="70" height="105" src="@data.Product.ImgURL"></img>
+                            </div>
+
+                             <div class="col mt-3">
+                                 <div class="row">
+                                     <p style="color:chocolate; padding-left: 0px; margin-bottom:0px; font-weight:bold">@data.Product.Ttile</p>
+                                 </div>
+                                 <div class="row">
+                                      <p style="color:dimgray; padding-left: 10px; padding-top:0px">@data.Product.Author</p>
+                                 </div>
+                            </div>
+
+                            <div class="col-3 mt-3 pt-0">
+                           
+                              <div class="row">
+                                  <div class="col">
+                                      <a style="background-color:dimgray; color:white" asp-action="Plus" asp-route-cartId="@data.ShppingCartId" class="btn">+</a>
+                                  </div>
+                                   <div class="col text-center">
+                                       <p>@data.Count</p> 
+                                  </div>
+                                   <div class="col">
+                                    <a style="background-color:dimgray; color:white" asp-action="Minus" asp-route-cartId="@data.ShppingCartId" class="btn">-</a>
+                                  </div>
+                              </div>
+                            
+                            </div>
+
+                            <div class="col mt-3">
+                                 <p style="padding-left: 50px; font-weight:bold">@data.Price.ToString("c")</p>
+                            </div>
+
+                            <div class="col mt-3">
+                            <a asp-action="Remove" asp-route-cartId="@data.ShppingCartId" style="padding-left:80px; cursor:pointer; color:white; font-size: 30px; margin-top: 0px"><i class="bi bi-trash3"></i></a>
+                            </div>
+                        </div>
+                        
+                   </div>
+                }
+                <div class="row card-footer">
+                
+                        <div class="row">
+                            <div class="col">
+                                <p style="font-weight:bold; margin-left:30px">Total (INR)</p>
+                            </div>
+
+                            <div class="col">
+                                <p style="margin-left:220px; font-weight:bold">@Model.OrderHeader.OrderTotal.ToString("c")</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <a asp-controller="Cart" asp-action="Checkout" style="background-color:cadetblue" class="btn">Checkout</a>
+                        </div>
+
+
+                        <div class="row mt-3">
+                            <a style="background-color:azure" class="btn border-1 border-secondary" asp-controller="Home" asp-action="Index">Continue Shopping</a>
+                        </div>
+                    
+                </div>
+                
+                </div>
+              
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,103 @@
+﻿@model EasyShopify.Models.ShppingCart
+
+<html>
+    <body>
+        @TempData["value"]
+    <div class="row Container card shadow" style="background-color:transparent; color:white; border:solid; margin-top:50px">
+        <div class="col-12 text-center card-header" style="vertical-align:central; background-color:darkgray; background-color:transparent">
+          <div class="row">
+                <h4 style="text-transform:uppercase; margin-bottom: 0px; font-weight:bold; color:black">@Model.Product.Ttile</h4>
+          </div>
+          <div class="row">
+                <h7 style="font-size:14px; color:black">By @Model.Product.Author</h7>
+          </div>
+       </div>
+       <div class="col-12 card-body">
+       <form method="post">
+           
+           <input asp-for="ProductId" hidden></input>
+           <input asp-for="ShppingCartId" hidden></input>
+           <div class="row">
+               <dic class="col-3">
+                    <img style="margin-left: 140px; margin-top: 15px; height:400px; width: 300px; margin-bottom: 50px" src="@Model.Product.ImgURL"></img>
+               </dic>
+               <dic class="col-md-9">
+                   <div style="margin-left: 300px; margin-top: 10px" class="row">
+                        <p><b>ISBN : </b>@Model.Product.ISBN</p>
+                   </div>
+                    <div style="margin-left: 300px; margin-top: 10px" class="row">
+                        <p><b>List Price : </b><span style="text-decoration: line-through">@Model.Product.ListPrice.ToString("c")</span></p>
+                    </div>
+                    <div class="row" style="margin-left: 300px; width:500px">
+
+                        <div class="row" style="margin-left:25px">
+                            <div class="col">
+                                <p style="margin-bottom:0px"><b>Quantity</b></p>
+                            </div>
+                              <div class="col">
+                                <p style="margin-bottom:0px">1-50</p>
+                            </div>
+                              <div class="col">
+                                <p style="margin-bottom:7px">51-100</p>
+                            </div>
+                              <div class="col">
+                                <p style="margin-bottom:0px">100+</p>
+                            </div>
+                        </div>
+                        <hr style="margin-bottom:7px">
+                        <div class="row" style="margin-left:30px">
+                            <div class="col">
+                                <p style="margin-top:0px"><b>Price</b></p>
+                            </div>
+                            <div class="col">
+                                    <p style="margin-top:0px; color:limegreen; font-weight:bold">@Model.Product.Price.ToString("c")</p>
+                            </div>
+                            <div class="col">
+                                    <p style="margin-top:0px; color:limegreen; font-weight:bold">@Model.Product.Price50.ToString("c")</p>
+                            </div>
+                            <div class="col">
+                                    <p style="margin-top:0px; color:limegreen; font-weight:bold">@Model.Product.Price100.ToString("c")</p>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                    <div class="row" style="margin-left: 300px; width:500px">
+                        <div class="row">
+                            <p><b>Description : </b></p>
+                        </div>
+                        <div class="row" style="margin-left:30px">
+                            <p>@Model.Product.Description</p>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 300px; width:500px; margin-top: 20px">
+                        <div class="col">
+                            <label asp-for="Count" style="width:80px; height:30px; text-align:center; color:white; background-color: black; vertical-align:central;margin-left:140px; border-radius: 5px">Quantity</label>
+                            <span asp-validation-for="Count" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <input asp-for="Count" style="text-align:center" type="number"></input>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 300px; width:500px; margin-top: 40px">
+                        <div class="col">
+                           <a asp-controller="Home" asp-action="Index" style="margin-left:10px; background-color:slategrey; color:white; border:none" class="btn btn-dark w-100">Back To Home</a>
+                        </div>
+                        <div class="col">
+                            <button  style="margin-left:10px; border:none" class="btn btn-dark w-100">Add To Cart</button>
+                        </div>
+                      
+                    </div>
+               </dic>
+           </div>
+            </form>
+       </div>
+   </div>
+    </body>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+</html>

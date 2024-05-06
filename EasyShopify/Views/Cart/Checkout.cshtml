@@ -1,0 +1,131 @@
+﻿@model ShoppingCartVM
+<html>
+    <head>
+
+    </head>
+<body>
+        <div class="row card mt-5" style="background-color:transparent; color:white; border:solid; padding:10px">
+            <div class="row card-header">
+                <div class="col">
+                    <h3>Shopping Cart</h3>
+                </div>
+
+                <div class="col text-end">
+                    <a asp-controller="Cart" asp-action="Index" class="btn" style="background-color:cadetblue"> Back to Cart </a>
+                </div>
+            </div>
+        <form method="post">
+            <input asp-for="OrderHeader.OrderTotal" hidden></input>
+            <input asp-for="@Model.Product.Id" hidden></input>
+             <div class="row card-body">
+                 <div class="col">
+                     <div class="row">
+                        <h4 style="color:papayawhip; font-weight: bold; letter-spacing: 2px; margin-top: 18px; font-size:30px ">Shipping Details:</h4>
+                     </div>
+
+                     <div class="row mt-3">
+                            <div class="col-3">
+                            <label class="form-label">Name<label>
+                             </div> 
+                            <div class="col-9">
+                                <input style="width: 320px" class="form-control" asp-for="OrderHeader.Name" >
+                            </div>
+                     </div>
+
+                       <div class="row mt-3">
+                            <div class="col-3">
+                                <label class="form-label">Phone<label>
+                             </div> 
+                            <div class="col-9">
+                               <input style="width: 320px" type="text" class="form-control" asp-for="OrderHeader.Phone" >
+                            </div>
+                     </div>
+
+                       <div class="row mt-3">
+                            <div class="col-3">
+                                <label class="form-label">City<label>
+                             </div> 
+                            <div class="col-9">
+                                 <input style="width: 320px" type="text" asp-for="OrderHeader.City" class="form-control" readonly>
+                            </div>
+                     </div>
+
+                       <div class="row mt-3">
+                            <div class="col-3">
+                                <label class="form-label">State<label>
+                             </div> 
+                            <div class="col-9">
+                                 <input style="width: 320px" type="text" class="form-control"  asp-for="OrderHeader.State" readonly>
+                            </div>
+                     </div>
+
+                       <div class="row mt-3">
+                            <div class="col-3">
+                                <label class="form-label">Postal Code<label>
+                             </div> 
+                            <div class="col-9">
+                                  <input style="width: 320px" type="text" class="form-control" asp-for="OrderHeader.PostalCode" readonly>
+                            </div>
+                     </div>
+
+                     
+
+                 </div>
+
+                 <div class="col">
+                     <div class="col">
+                         <div class="row">
+                            <h4 style="color:papayawhip; font-size:30px; font-weight: bold; letter-spacing: 2px; margin-top: 18px ">Order Summary:</h4>
+                         </div>
+
+                         @foreach(var data in Model.ListCart)
+                        {
+                            
+                        
+                        <div class="row card border-1 shadow mt-3">
+                             <div class="row">
+                                 <div class="row mt-2">
+                                     <div class="col">
+                                            <p style="color:crimson"><span style="font-weight:bold;color:black">@data.Product.Ttile</span></p>
+                                     </div>
+                                     <div class="col">
+                                         <p style="margin-left:60px; font-weight: bold; color:darkslategray">@data.Count <span style="color:gray">Qty</span></p>
+                                     </div>
+                                     <div class="col">
+                                        <p style="color: green; font-weight: bold" class="text-end">@data.Price.ToString("c")</p>
+                                     </div>
+                                      <div class="col">
+                                            <a asp-action="RemoveCheckout" asp-controller="Cart" asp-route-cartId = "@data.ShppingCartId" style="padding-left:80px; cursor:pointer"><i class="bi bi-trash3"></i></a>
+                                      </div>
+                                 </div>
+                               
+                             </div>
+
+                            
+                        </div>
+                        }
+                         <div class="row card-footer">
+                             <div class="col">
+                                <p class="mt-2">Total</p>
+                             </div>
+                             <div class="col">
+                                 <p style="font-weight:bold" class="mt-2 text-end me-3"> @Model.OrderHeader.OrderTotal.ToString("c")</p>
+                             </div>
+                         </div>
+
+                         
+
+                     </div>
+                 </div>
+            </div>
+       
+             <div class="row mt-2 mb-2">
+                 <div class="col-6">
+                     <button asp-route-id="" class="btn w-100" type="submit" style="background-color:darkslategrey; color:white">Place Order</button>
+                 </div>
+                 
+            </div>
+        </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,115 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+<head>
+    <style>
+        .txt{
+            background-color: lightgray;
+            border-radius: 30px;
+            text-align:center;
+            font-size:18px;
+            width: 500px;
+
+        }
+    </style>
+</head>
+
+<div class="row container mt-5" style="border:solid; color:white; border-color:white">
+    <div style="background-color:transparent" class="col card-header shadow text-center mt-3">
+        <p style="font-size:30px; font-weight:bold; font-family:Rockwell; letter-spacing:10px">Registration</p>
+    </div>
+    <div style="margin-left:1px; background-color:transparent" class="row card-body shadow mb-4">
+      <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div> 
+        <div class="row ms-4">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input style="background-color: gray" asp-for="Input.Email" class="txt form-control border-2" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                        <label style="color: black" asp-for="Input.Email">Email</label>
+                        <span asp-validation-for="Input.Email" class="text-white"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating ">
+                        <input style="background-color: gray" asp-for="Input.Name" class="txt form-control border-2" placeholder="Name" />
+                        <label style="color: black" asp-for="Input.Name">Name</label>
+                        <span asp-validation-for="Input.Name" class="text-danger"></span>
+                    </div>
+                </div>
+        </div>
+        <div class="row ms-4">
+            <div class="col">
+                    <div class="form-floating mb-3">
+                        <input style="background-color: gray" asp-for="Input.Password" class="txt form-control border-2" autocomplete="new-password" aria-required="true" placeholder="password" />
+                        <label style="color: black" asp-for="Input.Password">Password</label>
+                        <span asp-validation-for="Input.Password" class="text-white"></span>
+                    </div>
+            </div>
+            <div class="col">
+                    <div class="form-floating mb-3">
+                        <input style="background-color: gray" asp-for="Input.City" class="txt form-control border-2" placeholder="Name" />
+                        <label style="color: black" asp-for="Input.City">City</label>
+                        <span asp-validation-for="Input.City" class="text-danger"></span>
+                    </div>
+            </div>
+        </div>
+        <div class="row ms-4">
+            <div class="col">
+                  
+                    <div class="form-floating mb-3">
+                        <input style="background-color: gray" asp-for="Input.ConfirmPassword" class="txt form-control border-2" autocomplete="new-password" aria-required="true" placeholder="password" />
+                        <label style="color: black" asp-for="Input.ConfirmPassword">Confirm Password</label>
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-white"></span>
+                    </div>
+            </div>
+             <div class="col">
+                    <div class="form-floating mb-3">
+                        <input style="background-color: gray" asp-for="Input.PostalCode" class="txt form-control border-2" placeholder="Name" />
+                        <label style="color: black" asp-for="Input.PostalCode">Postal Code</label>
+                        <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
+                    </div>
+            </div>
+        </div>
+            <div class="row ms-4">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <select style="color: black" class="txt form-select border-2" asp-for="Input.Role" asp-items="@Model.Input.RoleList">
+                            <option style="color: black" disabled selected>--Select Role--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                        <div class="form-floating mb-3">
+                            <input style="background-color: gray" asp-for="Input.State" class="txt form-control border-2" placeholder="Name" />
+                            <label style="color: black" asp-for="Input.State">State</label>
+                            <span asp-validation-for="Input.State" class="text-danger"></span>
+                        </div>
+                </div>
+            </div>
+            <div class="row ms-4">
+                <div class="col">
+                      
+                    <div class="form-floating mb-3">
+                        <input style="background-color: gray" asp-for="Input.Gender" class="txt form-control border-2" placeholder="Name" />
+                        <label style="color: black" asp-for="Input.Gender">Gender</label>
+                        <span asp-validation-for="Input.Gender" class="text-secondary"></span>
+                    </div>
+                </div>
+                <div class="col">
+
+                </div>
+            </div>
+            <div class="row mb-3">
+                <button style="background-color:darkslategrey; width:700px; margin-left: 240px; margin-top: 20px" id="registerSubmit" type="submit" class="btn btn-lg btn-primary">Register</button>
+            </div>
+           
+        </form>
+        </div>
+      
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
